@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 " style="margin-top:20px;">
-            <h4>Registration tyii</h4>
+            <h4>Registration Poulami</h4>
             <hr>
              <form action="{{route('register-user')}}" method="post">
                 @csrf
