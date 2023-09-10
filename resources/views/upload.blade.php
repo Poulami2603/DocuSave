@@ -4,40 +4,45 @@
 <div class="col-md-10">
 <div class="card">
   <div class="card-body">
-  <h1 className="fw-bold text-white mt-5 text-center">Upload Your Document</h1>
-    <div class="col-md-6 mx-auto mt-5">
-    <form className="contact-form">
-       <div className="row">
-          <div className="col-md-12">
-            <div className="form-group">
-             <input type="text" className="form-control" name='title' value="Title">
+  <h1 class="justify-content-center mt-2">Upload Your Document</h1>
+    <div class="col-md-6 mx-auto mt-3">
+    <form class="contact-form" action="store_data" method="post" enctype="multipart/form-data">
+      @csrf
+       <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <lable>Document Title</lable>
+             <input type="text" class="form-control" name='title' placeholder="Title"/>
            </div>
           </div>
-          <div className="col-md-12">
-            <div className="form-group">
-               <select class="form-control" name='category' value='category'>
-                 <option className='text-dark'>Select Document Type</option>
-                 <option className='text-dark' name='category' value="aadhar">Aadhar Card</option>
-                 <option className='text-dark' name='category' value="pan">PAN Card</option>
-                 <option className='text-dark' name='category' value="voter">Voter Card</option>
-                 <option className='text-dark' name='category' value="marksheet">Marksheet</option>
-                 <option className='text-dark' name='category' value="others">Others</option>
+          <div class="col-md-12">
+            <div class="form-group">
+            <lable>Document Type</lable>
+               <select class="form-control" name='type' placeholder='type'>
+                 <option class='text-dark'>Select Document Type</option>
+                 <option class='text-dark' name='type' value="aadhar">Aadhar Card</option>
+                 <option class='text-dark' name='type' value="pan">PAN Card</option>
+                 <option class='text-dark' name='type' value="voter">Voter Card</option>
+                 <option class='text-dark' name='type' value="marksheet">Marksheet</option>
+                 <option class='text-dark' name='type' value="others">Others</option>
                </select>
             </div>
           </div>
-         <div className="col-md-6">
-        <div className="form-group">
-          <input type="text" className="form-control" name='id' value='ID Number'>
+         <div class="col-md-12">
+        <div class="form-group">
+         <lable>ID Number</lable>
+          <input type="text" class="form-control" name='docid' placeholder='ID Number'>
        </div>
        </div>
-      <div className="col-md-12">
-        <div className="form-group">
-          <input type="file" className='form-control' id='img' name='img' >
+      <div class="col-md-12">
+        <div class="form-group">
+         <lable>Upload Document</lable>
+          <input type="file" class='form-control' id='img' name='image' />
         </div>
       </div>
-      <div className="col-md-12">
-        <div className="form-group">
-        <a href="/edit" class="btn btn-primary">Upload</a>
+      <div class="col-md-12">
+        <div class="form-group">
+        <input type="submit" name="upload" placeholder="Upload">
       </div>
       </div>
       </div>

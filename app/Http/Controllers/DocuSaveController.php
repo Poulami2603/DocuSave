@@ -17,6 +17,10 @@ class DocuSaveController extends Controller
         return view("auth.registration");
     }
 
+    public function admindashboard(){
+        return view("admin.admindashboard");
+    }
+
     public function registerUser(Request $request){
         $request->validate([
             'name'=>'required',
@@ -44,7 +48,8 @@ class DocuSaveController extends Controller
         $user = User::where('email', '=', $request->email)->first();
         if ($user){
             if (Hash::check($request->password, $user->password)){
-                $request->session()->put('loginId', $user->phone);
+                $request->session()->put('loginId', $user->user_id);
+                $request->session()->put('userName', $user->name);
                 return redirect('/dashboard');
             }else{
                 return back()->with('fail', 'Please check your password.');
@@ -52,15 +57,6 @@ class DocuSaveController extends Controller
         }else{
             return back()->with('fail', 'Please enter registered email-id.');
         }
-    }
-
-    public function dashboard(){
-        // $data = array();
-        // if (Session::has('loginId')){
-        //     $data = User::where('email', '=', $request->email)->first();
-        // }
-        // return view('dashboard', compact('data'));
-        return view('dashboard');
     }
 
     public function logout(){

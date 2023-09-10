@@ -13,7 +13,7 @@
         <div class="col-md-3">
         <header class="header" role="banner">
   <div class="nav-wrap mt-5">
-    <h1>Hi Poulami !</h1>
+    <h1>Hi {{session('userName')}}</h1>
     <nav class="main-nav" role="navigation">
       <ul class="unstyled list-hover-slide">
         <li><a href="/dashboard">All Documents</a></li>
